@@ -1,3 +1,5 @@
+#import "paths.typ": page-relative
+
 #let seo-tags(
   title: "",
   author: none,
@@ -91,7 +93,7 @@
     "Untitled Page"
   }
   html.title(page-title)
-  html.link(rel: "icon", href: "/assets/favicon.ico")
+  html.link(rel: "icon", href: page-relative("/assets/favicon.ico"))
 
   // Date
   if type(date) == datetime {
@@ -106,7 +108,7 @@
     html.link(
       rel: "alternate",
       type: "application/rss+xml",
-      href: "/feed.xml",
+      href: page-relative("/feed.xml"),
       title: rss-title + " RSS Feed",
     )
   }

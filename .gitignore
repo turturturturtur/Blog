@@ -19,6 +19,7 @@ uv.lock
 
 # local tooling
 biome.json
+AGENTS.md
 
 # build outputs
 _site/

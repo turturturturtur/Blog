@@ -2,7 +2,14 @@
 ///
 /// The `date` argument may be either a `datetime` value or preformatted
 /// content. The `path` argument may include or omit a trailing slash.
-#let blog-entry(date: auto, path: str, title: str) = {
+#let blog-entry(
+  date: auto,
+  path: str,
+  title: str,
+  category: none,
+  tags: (),
+  description: none,
+) = {
   let href = if path.ends-with("/") {
     path
   } else {
@@ -24,7 +31,27 @@
       )
       html.div(
         class: "blog-entry-content",
-        html.a(href: href, title),
+        {
+          html.a(href: href, title)
+
+          if category != none or tags.len() > 0 {
+            html.div(
+              class: "blog-entry-meta",
+              {
+                if category != none {
+                  html.span(class: "blog-entry-category", category)
+                }
+                for tag in tags {
+                  html.span(class: "blog-entry-tag", tag)
+                }
+              },
+            )
+          }
+
+          if description != none {
+            html.p(class: "blog-entry-description", description)
+          }
+        },
       )
     },
   )

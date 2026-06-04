@@ -7,6 +7,7 @@
 #import "links.typ": template-links
 #import "metadata.typ": metadata
 #import "byline.typ": template-byline
+#import "paths.typ": page-relative
 
 /// The main wrapper function of Tufted Blog Template.
 ///
@@ -76,7 +77,7 @@
           "/assets/theme.css",
         )
         for (css-link) in (base-css + css).dedup() {
-          html.link(rel: "stylesheet", href: css-link)
+          html.link(rel: "stylesheet", href: page-relative(css-link))
         }
 
         // load JS scripts
@@ -89,7 +90,7 @@
           "/assets/back-to-top.js",
         )
         for (js-src) in (base-js + js-scripts).dedup() {
-          html.script(src: js-src)
+          html.script(src: page-relative(js-src))
         }
       })
 
@@ -116,7 +117,7 @@
               class: "site-nav",
               {
                 for (href, title) in header-links {
-                  html.a(href: href, title)
+                  html.a(href: page-relative(href), title)
                 }
                 html.elem(
                   "button",

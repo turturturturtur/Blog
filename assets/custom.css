@@ -3,3 +3,121 @@ CUSTOM STYLES
 
 Add your custom CSS styles here to override or extend the default styles.
 *******************************************************************************/
+
+.topic-grid {
+	display: grid;
+	grid-template-columns: repeat(3, minmax(0, 1fr));
+	gap: 1rem;
+	width: 90%;
+	margin: 1rem 0 1.5rem;
+}
+
+.topic-card:any-link {
+	display: block;
+	min-height: 8.5rem;
+	padding: 1rem;
+	border: 1px solid var(--theme-table-border, #ccc);
+	border-radius: 6px;
+	text-decoration: none;
+	box-shadow: none;
+	background: color-mix(in srgb, var(--theme-bg, #fffff8) 88%, var(--theme-text, #111) 12%);
+	box-sizing: border-box;
+}
+
+.topic-card:hover,
+.topic-card:focus-visible {
+	background: var(--highlight-weak);
+	outline: none;
+}
+
+.topic-card strong {
+	display: block;
+	margin-bottom: 0.6rem;
+	font-size: 1.25rem;
+}
+
+.topic-card p {
+	width: 100%;
+	margin: 0;
+	text-align: left;
+	line-height: 1.6;
+}
+
+.quick-index {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	gap: 0.5rem;
+	width: 55%;
+	margin: 1rem 0 1.5rem;
+}
+
+.quick-index strong {
+	margin-right: 0.25rem;
+}
+
+.quick-index a:any-link,
+.blog-entry-category,
+.blog-entry-tag {
+	display: inline-flex;
+	align-items: center;
+	min-height: 1.8rem;
+	padding: 0.1rem 0.45rem;
+	border: 1px solid var(--theme-table-border, #ccc);
+	border-radius: 999px;
+	text-decoration: none;
+	box-shadow: none;
+	font-size: 0.95rem;
+	line-height: 1.4;
+}
+
+.quick-index a:hover,
+.quick-index a:focus-visible {
+	background: var(--highlight-weak);
+	outline: none;
+}
+
+.blog-entry {
+	align-items: flex-start;
+	width: 65%;
+}
+
+.blog-entry-content a:any-link {
+	line-height: 1.25;
+}
+
+.blog-entry-meta {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 0.4rem;
+	margin-top: 0.45rem;
+}
+
+.blog-entry-category {
+	font-weight: 600;
+}
+
+.blog-entry-description {
+	width: 100%;
+	margin: 0.45rem 0 0;
+	text-align: left;
+	line-height: 1.6;
+	color: var(--theme-footer, #777);
+}
+
+@media (max-width: 760px) {
+	.topic-grid,
+	.quick-index,
+	.blog-entry {
+		width: 100%;
+	}
+
+	.topic-grid {
+		grid-template-columns: 1fr;
+	}
+
+	.blog-entry {
+		flex-direction: column;
+		gap: 0.4rem;
+	}
+}

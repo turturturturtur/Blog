@@ -1,36 +1,64 @@
 #import "../config.typ": template, tufted
-#show: template
-
-// tufted.margin-note 可以让你在边栏中放置内容
-// 宽大的边栏是 tufte 样式的特点，将注释放于其中并与正文并排，便于对照
-#tufted.margin-note({
-  image("imgs/tufted-duck-female-with-duckling.webp")
-  image("imgs/tufted-duck-male.webp")
-})
+#show: template.with(
+  title: "技术笔记与学习经验",
+  description: "记录工程实践、技术文章、学习经验和可复用速查笔记。",
+)
 
 #tufted.margin-note[
-  凤头潜鸭（学名 _Aythya fuligula_）是一种中型潜水鸭，原生于欧亚大陆。凭借卓越的潜水能力，它们能深入水下捕食猎物。
-]
-#tufted.margin-note[
-  The tufted duck (_Aythya fuligula_) is a medium-sized diving duck native to Eurasia. Known for its diving ability, it can plunge to great depths to forage for food.
+  计划中的写作流：草稿先在飞书或其他工具沉淀；整理后转成 Typst 文章；本地构建校验；提交到 GitHub，由 GitHub Actions 自动部署。
 ]
 
-= Tufted 博客模板
+= 技术笔记与学习经验
 
-这是一个基于 #link("https://typst.app/")[Typst] 和 #link("https://github.com/vsheg/tufted")[Tufted] 的静态网站构建模板，手把手教你搭建简洁、美观的个人博客、作品集和简历设计。
+这里记录我在技术学习和工程实践中的文章、速查笔记和经验复盘。内容会优先面向可复用的知识：一个问题怎么拆、一个概念怎么查、一次实践踩过哪些坑。
 
-#figure(caption: "网站示例")[#image("imgs/devices.webp")]
+== 主要入口
 
-如果你通过访问本地地址（运行 `preview` 或其他本地服务）中看到了本页面，说明你已经成功安装了依赖、成功构建了网页、成功运行了预览。恭喜你！
+#tufted.full-width[
+  #html.div(
+    class: "topic-grid",
+    {
+      html.elem(
+        "a",
+        attrs: (class: "topic-card", href: "Blog/"),
+        {
+          html.elem("strong", "文章归档")
+          html.p("按主题、年份和标签整理技术文章与学习笔记。")
+        },
+      )
+      html.elem(
+        "a",
+        attrs: (class: "topic-card", href: "Blog/#quick-index"),
+        {
+          html.elem("strong", "速查索引")
+          html.p("把常用概念、工具链和实践经验整理成可快速定位的入口。")
+        },
+      )
+      html.elem(
+        "a",
+        attrs: (class: "topic-card", href: "feed.xml"),
+        {
+          html.elem("strong", "RSS 订阅")
+          html.p("订阅后可以跟踪后续新增文章。")
+        },
+      )
+    },
+  )
+]
 
-想要使用这个模板编写你自己的网站，你需要学会使用 Typst。放心，非常好上手。
+== 内容方向
 
-我在目前的网站中包含了尽可能多的 Typst 用例#footnote[例如文字、段落、分级标题、引用块、代码块、有序列表、无序列表、表格、图片、公式、链接、脚注、参考文献、嵌入 markdown 等。这块文字便是脚注，使用 `#footnote()` 函数编写。]，你可以在源代码中看到这些内容的 Typst 实现。我也包含了丰富的文档来帮助你编写页面和部署网站，你可以在 #link("/Docs/")[Docs] 页看到这些文档。
+- *编程语言与工程实践*：Python、类型系统、测试、构建、调试和性能分析。
+- *系统与工具链*：Linux、Git、CI/CD、开发环境和自动化脚本。
+- *数据与数学基础*：概率统计、机器学习基础、实验记录和可视化。
+- *学习经验复盘*：读书笔记、课程总结、问题拆解方法和阶段性回顾。
 
-== 🎨 样式特点
+== 写作工作流
 
-#link("https://edwardtufte.github.io/tufte-css/")[*Tufte 样式*] 源于数据可视化大师 Edward Tufte#footnote[爱德华·罗尔夫·塔夫特（生于1942年3月14日），常被称为“ET”，是美国统计学家，耶鲁大学政治学、统计学与计算机科学荣休教授。他因在信息设计领域的著述和作为数据可视化领域的先驱而闻名。] 的设计理念，主张“内容至上”与极简主义，力求去除一切干扰信息的视觉杂音。
+以后新增文章时，推荐保持这个流程：
 
-#link("https://edwardtufte.github.io/tufte-css/")[*The Tufte style*] originates from the design philosophy of data visualization master _Edward Tufte_#footnote[Edward Rolf Tufte (/ˈtʌfti/; born March 14, 1942), sometimes known as "ET", is an American statistician and professor emeritus of political science, statistics, and computer science at Yale University. He is noted for his writings on information design and as a pioneer in the field of data visualization.], advocating for a "content-first" approach and minimalism while striving to eliminate all visual noise that distracts from the information.
-
-其最鲜明的特点是采用*宽大的侧边栏布局*，将注释、参考文献和图表直接并排展示在正文旁，取代了传统的脚注或尾注，配合优雅的*衬线字体*与*类纸张背景*，在数字屏幕上复刻了如经典学术著作般清晰、优雅、沉浸的深度阅读体验。
+1. 在飞书或其他草稿工具里先写出原始材料。
+2. 我把草稿整理成结构化文章，补齐标题、摘要、分类、标签和参考链接。
+3. 生成 `content/Blog/YYYY-MM-DD-topic-name/index.typ`。
+4. 运行 `uv run build.py build -f` 校验站点。
+5. 提交并推送到 GitHub，触发 GitHub Pages 部署。
