@@ -20,7 +20,7 @@
   title: "",
   author: none,
   description: "",
-  lang: "zh",
+  lang: "en",
   date: none,
   extra-info: none,
   website-title: "",
@@ -42,6 +42,8 @@
 
   content,
 ) = {
+  let current-page-path = sys.inputs.at("page-path", default: "")
+
   // Apply styling
   show: template-math
   show: template-refs
@@ -85,6 +87,7 @@
           "/assets/code-blocks.js",
           "/assets/format-headings.js",
           "/assets/theme-toggle.js",
+          "/assets/language-toggle.js",
           "/assets/marginnote-toggle.js",
           "/assets/toc.js",
           "/assets/back-to-top.js",
@@ -120,14 +123,32 @@
                   html.a(href: page-relative(href), title)
                 }
                 html.elem(
-                  "button",
-                  attrs: (
-                    id: "theme-toggle",
-                    class: "theme-toggle-btn",
-                    type: "button",
-                    aria-label: "Toggle theme",
-                  ),
-                  "",
+                  "div",
+                  attrs: (class: "site-nav-controls"),
+                  {
+                    html.elem(
+                      "button",
+                      attrs: (
+                        id: "language-toggle",
+                        class: "language-toggle-btn",
+                        type: "button",
+                        aria-label: "Switch language",
+                        data-current-lang: lang,
+                        data-page-path: current-page-path,
+                      ),
+                      if lang == "zh" { "EN" } else { "中" },
+                    )
+                    html.elem(
+                      "button",
+                      attrs: (
+                        id: "theme-toggle",
+                        class: "theme-toggle-btn",
+                        type: "button",
+                        aria-label: "Toggle theme",
+                      ),
+                      "",
+                    )
+                  },
                 )
               },
             )

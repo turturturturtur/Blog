@@ -20,7 +20,7 @@ Add your custom CSS styles here to override or extend the default styles.
 	border-radius: 6px;
 	text-decoration: none;
 	box-shadow: none;
-	background: color-mix(in srgb, var(--theme-bg, #fffff8) 88%, var(--theme-text, #111) 12%);
+	background: transparent;
 	box-sizing: border-box;
 }
 

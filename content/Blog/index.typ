@@ -1,59 +1,204 @@
 #import "../index.typ": template, tufted
 #show: template.with(
-  title: "文章归档",
-  description: "按主题、年份和标签整理技术文章、学习经验和速查笔记。",
+  title: "Article Archive",
+  description: "Technical articles and reusable references organized by the current technical writing taxonomy.",
 )
-
-= 文章归档
-
-这里按主题维护文章入口。每篇文章保留一个主分类、若干标签和一句摘要，方便后续从飞书草稿整理时快速放入正确位置。
 
 #html.elem(
   "div",
   attrs: (id: "quick-index", class: "quick-index"),
   {
-    html.elem("strong", "速查入口")
-    html.elem("a", attrs: (href: "#programming"), "编程语言")
-    html.elem("a", attrs: (href: "#data-math"), "数据与数学")
-    html.elem("a", attrs: (href: "#study-notes"), "学习笔记")
-    html.elem("a", attrs: (href: "#timeline"), "时间线")
+    html.elem("strong", "Quick Index")
+    html.elem("a", attrs: (href: "#ai-infra"), "AI Infra")
+    html.elem("a", attrs: (href: "#data-curation"), "Data curation")
+    html.elem("a", attrs: (href: "#math"), "Math")
+    html.elem("a", attrs: (href: "#rl"), "RL")
+    html.elem("a", attrs: (href: "#opd"), "OPD")
+    html.elem("a", attrs: (href: "#agent"), "Agent")
+    html.elem("a", attrs: (href: "#tech-report-analysis"), "Tech Report Analysis")
+    html.elem("a", attrs: (href: "#project-management-experience"), "Project Management Experience")
+    html.elem("a", attrs: (href: "#timeline"), "Timeline")
   },
 )
 
-#html.elem("h2", attrs: (id: "programming"), "编程语言")
+#html.elem("h2", attrs: (id: "ai-infra"), "AI Infra")
 
-#tufted.blog-entry(
-  date: "2024-10-04",
-  path: "2024-10-04-iterators-generators/",
-  title: "Iterators vs Generators in Python",
-  category: "编程语言",
-  tags: ("Python", "迭代协议", "生成器"),
-  description: "理解 Python 迭代器和生成器的差异，以及什么时候使用它们。",
+Training and inference infrastructure notes: kernels, distributed training, serving runtimes, performance engineering, and framework internals.
+
+#html.div(
+  class: "quick-index",
+  {
+    html.elem("strong", "Subcategories")
+    html.span(class: "blog-entry-tag", "triton")
+    html.span(class: "blog-entry-tag", "c++")
+    html.span(class: "blog-entry-tag", "megatron")
+    html.span(class: "blog-entry-tag", "verl")
+    html.span(class: "blog-entry-tag", "vllm")
+    html.span(class: "blog-entry-tag", "slime")
+    html.span(class: "blog-entry-tag", "sglang")
+  },
 )
 
-#html.elem("h2", attrs: (id: "data-math"), "数据与数学")
-
 #tufted.blog-entry(
-  date: datetime(year: 2025, month: 10, day: 30),
-  path: "2025-10-30-normal-distribution/",
-  title: "Normal Distribution",
-  category: "数据与数学",
-  tags: ("统计", "概率分布", "基础概念"),
-  description: "梳理正态分布的核心性质、公式和常见应用场景。",
+  date: datetime(year: 2026, month: 6, day: 4),
+  path: "2026-06-04-triton-kernel-smoke-test/",
+  title: "Triton Kernel Smoke Test",
+  category: "AI Infra",
+  tags: ("triton", "kernel", "performance"),
+  description: "A short AI infrastructure note that checks whether the blog taxonomy, archive entry, and build pipeline work for a Triton topic.",
 )
 
-#html.elem("h2", attrs: (id: "study-notes"), "学习笔记")
+#html.elem("h2", attrs: (id: "data-curation"), "Data curation")
 
-#tufted.blog-entry(
-  date: datetime(year: 2025, month: 4, day: 16),
-  path: "2025-04-16-monkeys-apes",
-  title: "Monkeys vs Apes",
-  category: "学习笔记",
-  tags: ("概念辨析", "阅读笔记"),
-  description: "一篇保留的学习笔记示例，可作为后续非技术笔记的占位参考。",
+Data pipeline notes for model training and evaluation: mixture design, selection criteria, filtering rules, quality checks, and feedback loops.
+
+#html.div(
+  class: "quick-index",
+  {
+    html.elem("strong", "Subcategories")
+    html.span(class: "blog-entry-tag", "Data Mixture")
+    html.span(class: "blog-entry-tag", "Data Selection")
+    html.span(class: "blog-entry-tag", "Data Filtering")
+  },
 )
 
-#html.elem("h2", attrs: (id: "timeline"), "时间线")
+#html.p(class: "blog-entry-description", "No published articles yet. New posts should use category Data curation and put the matching subcategory as the first tag when applicable.")
+
+#html.elem("h2", attrs: (id: "math"), "Math")
+
+Matrix calculus, linear algebra, and optimization notes: trace techniques, matrix derivatives, backpropagation derivations, and numerical linear algebra.
+
+#html.div(
+  class: "quick-index",
+  {
+    html.elem("strong", "Subcategories")
+    html.span(class: "blog-entry-tag", "Matrix Calculus")
+    html.span(class: "blog-entry-tag", "Linear Algebra")
+    html.span(class: "blog-entry-tag", "Optimization")
+  },
+)
+
+#tufted.blog-entry(
+  date: datetime(year: 2026, month: 6, day: 7),
+  path: "2026-06-07-matrix-calculus/",
+  title: "Matrix Calculus via Trace Techniques and MLP Backpropagation",
+  category: "Math",
+  tags: ("Matrix Calculus", "Backpropagation"),
+  description: "A self-contained derivation of matrix derivatives using trace tricks, applied to the full backward pass of a multi-layer perceptron.",
+)
+
+#html.elem("h2", attrs: (id: "rl"), "RL")
+
+Reinforcement learning notes: algorithms, reward design, evaluation, training stability, and practical experiment records.
+
+#html.div(
+  class: "quick-index",
+  {
+    html.elem("strong", "Subcategories")
+    html.span(class: "blog-entry-tag", "TBD")
+  },
+)
+
+#html.p(class: "blog-entry-description", "No published articles yet. Subcategories will be added once the RL writing stream stabilizes.")
+
+#html.elem("h2", attrs: (id: "opd"), "OPD")
+
+OPD notes are reserved as their own workstream so the archive can grow without mixing them into broader AI infrastructure or RL categories.
+
+#html.div(
+  class: "quick-index",
+  {
+    html.elem("strong", "Subcategories")
+    html.span(class: "blog-entry-tag", "TBD")
+  },
+)
+
+#html.p(class: "blog-entry-description", "No published articles yet. Subcategories are intentionally left blank for now.")
+
+#html.elem("h2", attrs: (id: "agent"), "Agent")
+
+Agent system notes: tool use, memory, planning, evaluation, product loops, and infrastructure needed to make agents useful in practice.
+
+#html.div(
+  class: "quick-index",
+  {
+    html.elem("strong", "Subcategories")
+    html.span(class: "blog-entry-tag", "TBD")
+  },
+)
+
+#html.p(class: "blog-entry-description", "No published articles yet. Subcategories will be added after several posts make the natural grouping clearer.")
+
+#html.elem("h2", attrs: (id: "tech-report-analysis"), "Tech Report Analysis")
+
+Technical report analysis for mainstream open model families: architecture, training data, post-training methods, evaluation results, efficiency choices, and deployment implications.
+
+#html.div(
+  class: "quick-index",
+  {
+    html.elem("strong", "Subcategories")
+    html.span(class: "blog-entry-tag", "DeepSeek")
+    html.span(class: "blog-entry-tag", "MiniMax")
+    html.span(class: "blog-entry-tag", "MiMo")
+    html.span(class: "blog-entry-tag", "GLM")
+    html.span(class: "blog-entry-tag", "Qwen")
+    html.span(class: "blog-entry-tag", "OLMo")
+    html.span(class: "blog-entry-tag", "Other Open Models")
+  },
+)
+
+#html.p(class: "blog-entry-description", "No published articles yet. New posts should use category Tech Report Analysis and put the model family as the first tag when applicable.")
+
+#html.elem("h2", attrs: (id: "project-management-experience"), "Project Management Experience")
+
+Project management notes from real work: goal alignment, scope control, execution cadence, stakeholder communication, delivery risk, and retrospective practices.
+
+#html.div(
+  class: "quick-index",
+  {
+    html.elem("strong", "Subcategories")
+    html.span(class: "blog-entry-tag", "Planning")
+    html.span(class: "blog-entry-tag", "Execution")
+    html.span(class: "blog-entry-tag", "Retrospective")
+  },
+)
+
+#tufted.blog-entry(
+  date: datetime(year: 2026, month: 6, day: 9),
+  path: "2026-06-09-project-management-experience/",
+  title: "Project Management Notes: From Goal Alignment to Delivery Review",
+  category: "Project Management Experience",
+  tags: ("Planning", "Execution", "Retrospective"),
+  description: "A practical example note on turning vague project goals into aligned scope, execution cadence, risk management, and reusable delivery review.",
+)
+
+#html.elem("h2", attrs: (id: "timeline"), "Timeline")
+
+== 2026
+
+#tufted.blog-entry(
+  date: datetime(year: 2026, month: 6, day: 9),
+  path: "2026-06-09-project-management-experience/",
+  title: "Project Management Notes: From Goal Alignment to Delivery Review",
+  category: "Project Management Experience",
+  tags: ("Planning", "Execution", "Retrospective"),
+)
+
+#tufted.blog-entry(
+  date: datetime(year: 2026, month: 6, day: 4),
+  path: "2026-06-04-triton-kernel-smoke-test/",
+  title: "Triton Kernel Smoke Test",
+  category: "AI Infra",
+  tags: ("triton", "kernel", "performance"),
+)
+
+#tufted.blog-entry(
+  date: datetime(year: 2026, month: 6, day: 7),
+  path: "2026-06-07-matrix-calculus/",
+  title: "Matrix Calculus via Trace Techniques and MLP Backpropagation",
+  category: "Math",
+  tags: ("Matrix Calculus", "Backpropagation"),
+)
 
 == 2025
 
@@ -61,15 +206,15 @@
   date: datetime(year: 2025, month: 10, day: 30),
   path: "2025-10-30-normal-distribution/",
   title: "Normal Distribution",
-  category: "数据与数学",
-  tags: ("统计", "概率分布"),
+  category: "Example / Legacy",
+  tags: ("Statistics", "Probability distribution"),
 )
 #tufted.blog-entry(
   date: datetime(year: 2025, month: 4, day: 16),
   path: "2025-04-16-monkeys-apes",
   title: "Monkeys vs Apes",
-  category: "学习笔记",
-  tags: ("概念辨析",),
+  category: "Example / Legacy",
+  tags: ("Concept comparison",),
 )
 
 == 2024
@@ -78,6 +223,6 @@
   date: "2024-10-04",
   path: "2024-10-04-iterators-generators/",
   title: "Iterators vs Generators in Python",
-  category: "编程语言",
-  tags: ("Python", "生成器"),
+  category: "Example / Legacy",
+  tags: ("Python", "Generators"),
 )

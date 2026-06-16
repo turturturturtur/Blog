@@ -1,69 +1,51 @@
 #import "../index.typ": template, tufted
 #show: template.with(
-  title: "Edward R. Tufte",
-  description: "CV of Edward R. Tufte",
+  title: "YellowPeach",
+  description: "CV of YellowPeach, a computer science student at Harbin Institute of Technology.",
   lang: "en"
 )
-#import "@preview/citegeist:0.2.2": load-bibliography
 
-= Edward R. Tufte
-
-#tufted.margin-note[
-  Statistician, Artist, and Professor Emeritus \
-  Website: #link("https://www.edwardtufte.com")[edwardtufte.com] \
-  Email: #link("mailto:noreply@edwardtufte.com", "noreply@edwardtufte.com")
-]
-
-#link("CV-PDF.pdf")[[PDF version is available! Click me!]]\
-#link("CV-PDF.pdf")[[点击这里查看 PDF 版本！]]
-
-Research in statistical evidence and analytical design for information visualization, integrating principles from statistics, graphic design, and cognitive science for the effective presentation of quantitative data.
-
-== Experience
-
-- *1983--Present*: Founder & Publisher, Graphics Press. Independent publishing house specializing in information design and data visualization.
-- *1977--1999*: Professor Emeritus, Yale University. Departments of Political Science, Statistics, and Computer Science.
-- *1967--1977*: Instructor, Princeton University. Woodrow Wilson School of Public and International Affairs.
-
-== Artworks
+= YellowPeach
 
 #tufted.margin-note[
-  #image("escaping-flatland.webp")
+  Computer Science, Harbin Institute of Technology \
+  GitHub: #link("https://github.com/turturturturtur")[turturturturtur] \
+  Blog: #link("https://blog.ntlhit.top")[blog.ntlhit.top] \
+  Location: China
 ]
 
-#tufted.margin-note[
-  A homage to Edward R. Tufte's large stainless steel sculpture titled _Escaping Flatland_
-]
+#link("CV-PDF.pdf")[[PDF version is available.]]\
+#link("CV-PDF.pdf")[[点击这里查看 PDF 版本。]]
 
-Founder of Hogpen Hill Farms, a 234-acre sculpture park in Woodbury, Connecticut. Creator of large-scale works including _Larkin’s Twig_ and the _Escaping Flatland_ series, exhibited at the Aldrich Contemporary Art Museum.
-
-== Research Contributions
-
-Development of sparklines, a method for embedding high-resolution data graphics within text, and formulation of the data-ink ratio as a quantitative measure of graphical efficiency.
-
-== Books
-
-#{
-  let bib = load-bibliography(read("books.bib"))
-  for item in bib.values().rev() [
-    #let data = item.fields
-    - #strong(data.year): #emph(data.title)
-  ]
-}
-
-== Papers
-
-#{
-  let bib = load-bibliography(read("papers.bib"))
-  for item in bib.values().rev() [
-    #let data = item.fields
-    - #data.author, "#data.title," #emph(data.journal), #data.year. DOI: #link(data.url)[#data.doi]
-  ]
-}
-
+Computer science student at Harbin Institute of Technology, writing under the public names _YellowPeach_ and _一个普通的黄桃_. Current interests include model compression, distillation, multimodal learning, video understanding, AI systems, and cybersecurity. I value engineering-driven research: clear setup, reproducible workflows, and technical notes that help others avoid avoidable friction.
 
 == Education
 
-- PhD in Political Science: Yale University (1968).
-- MS in Statistics: Stanford University.
-- BS in Statistics: Stanford University.
+- *Harbin Institute of Technology (HIT)*, Computer Science. Integrated B.S./M.S./Ph.D. track, ongoing.
+- *Beijing No. 4 High School*. Prior education before entering HIT.
+
+== Research Interests
+
+- Model compression and distillation.
+- Multimodal learning and video understanding.
+- AI systems, developer tooling, and practical infrastructure for experimentation.
+- Cybersecurity, especially as a future research direction.
+
+== Projects and Writing
+
+- *Personal technical blog*: #link("https://github.com/turturturturtur/blog.github.io")[turturturturtur/blog.github.io]. Maintains a public GitHub Pages site at #link("https://blog.ntlhit.top")[blog.ntlhit.top], with archive, category, tag, search, image, and custom-domain support.
+- *C/C++ development environment guide*: #link("https://blog.ntlhit.top/2024/06/03/c++%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E6%8C%87%E5%8D%97/")[vscode配置c/c++开发环境指南], published on June 3, 2024. A practical Chinese tutorial for configuring VS Code, MinGW g++, environment variables, C/C++ extensions, Code Runner, GDB debugging, and workspace-level `.vscode` files.
+- *Static-site publishing workflow*: Uses GitHub, GitHub Pages, Hexo-generated static output, a custom `CNAME`, local search XML, and article-local screenshots to publish technical notes.
+
+== Technical Skills
+
+- *Languages and fundamentals*: C/C++, basic Python workflow awareness, computer science fundamentals.
+- *Developer tooling*: VS Code, MinGW g++, GDB, Code Runner, C/C++ extension setup, environment-variable configuration.
+- *Web and publishing*: Git, GitHub, GitHub Pages, Hexo static-site output, HTML/CSS/JavaScript assets, local search metadata.
+- *Research toolkit interests*: compression, distillation, multimodal models, video understanding, and engineering-oriented experimentation.
+
+== Selected Public Links
+
+- GitHub profile: #link("https://github.com/turturturturtur")[https://github.com/turturturturtur]
+- Public blog: #link("https://blog.ntlhit.top")[https://blog.ntlhit.top]
+- Blog repository: #link("https://github.com/turturturturtur/blog.github.io")[https://github.com/turturturturtur/blog.github.io]

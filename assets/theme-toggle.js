@@ -1,11 +1,11 @@
 /**
  * Wires up the theme toggle button and keeps the page aligned with the
- * current session preference or the system color-scheme setting.
+ * current session preference or the default light theme.
  *
  * Behavior:
- * 1. New tabs follow the system theme by default.
+ * 1. New sessions use the light theme by default.
  * 2. Manual toggles persist only for the current browser session.
- * 3. A fresh session falls back to the system theme again.
+ * 3. A fresh session falls back to light mode again.
  *
  * sessionStorage is used instead of localStorage so the preference is not
  * carried across separate browser sessions.
@@ -37,20 +37,13 @@
 		}
 	}
 
-	// Read the current system color-scheme preference.
-	function getSystemTheme() {
-		return window.matchMedia("(prefers-color-scheme: dark)").matches
-			? "dark"
-			: "light";
-	}
-
 	// Resolve the theme that should currently be applied.
 	function getCurrentTheme() {
 		const storedTheme = getStoredTheme();
 		if (storedTheme) {
 			return storedTheme;
 		}
-		return getSystemTheme();
+		return "light";
 	}
 
 	// Apply the theme to the document root and refresh the toggle icon.
@@ -67,11 +60,11 @@
 		// In dark mode show the sun icon, and in light mode show the moon icon.
 		if (theme === "dark") {
 			button.classList.add("is-dark");
-			button.setAttribute("aria-label", "切换到浅色模式");
+			button.setAttribute("aria-label", "Switch to light mode");
 			button.innerHTML = ICONS.sun;
 		} else {
 			button.classList.remove("is-dark");
-			button.setAttribute("aria-label", "切换到深色模式");
+			button.setAttribute("aria-label", "Switch to dark mode");
 			button.innerHTML = ICONS.moon;
 		}
 	}
@@ -79,7 +72,7 @@
 	// Switch between light and dark mode for the current session.
 	function toggleTheme() {
 		const currentTheme =
-			document.documentElement.getAttribute("data-theme") || getSystemTheme();
+			document.documentElement.getAttribute("data-theme") || "light";
 		const newTheme = currentTheme === "dark" ? "light" : "dark";
 		setStoredTheme(newTheme);
 		applyTheme(newTheme);
@@ -106,15 +99,6 @@
 
 		// Sync the icon with the current theme before listening for changes.
 		updateToggleButton(getCurrentTheme());
-
-		// Follow system theme changes unless the user has overridden it.
-		window
-			.matchMedia("(prefers-color-scheme: dark)")
-			.addEventListener("change", (e) => {
-				if (!getStoredTheme()) {
-					applyTheme(e.matches ? "dark" : "light");
-				}
-			});
 	}
 
 	// Start immediately so the theme is set before interaction begins.

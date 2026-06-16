@@ -8,6 +8,14 @@
 #show: template.with(
   title: "Typst 功能速览与样例",
   description: "Typst 功能速览与样例文档，展示了 Typst 的功能以及在当前网页模板下的效果。",
+  lang: "zh",
+  header-links: (
+    "/zh/": "首页",
+    "/zh/Blog/": "文章",
+    "/zh/Docs/": "文档",
+    "/CV/": "简历",
+  ),
+  website-title: "一个普通的黄桃的博客",
 )
 
 = Typst 功能速览与样例

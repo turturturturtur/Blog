@@ -39,8 +39,7 @@ CSS CUSTOM PROPERTIES (Theme Variables)
 }
 
 /* Dark mode variables */
-html[data-theme="dark"],
-html:not([data-theme]) {
+html[data-theme="dark"] {
 	--theme-bg: #151515;
 	--theme-text: #ddd;
 	--theme-heading: #eee;
@@ -66,37 +65,6 @@ html:not([data-theme]) {
 	--theme-math-filter: invert(1) hue-rotate(180deg);
 	--theme-back-to-top: #bbb;
 	--theme-back-to-top-hover: #fff;
-}
-
-/* System preference: only apply dark variables when no explicit theme is set */
-@media (prefers-color-scheme: light) {
-	html:not([data-theme]) {
-		--theme-bg: #fffff8;
-		--theme-text: #111;
-		--theme-heading: #111;
-		--theme-code-bg: #f7f7f7;
-		--theme-code-text: inherit;
-		--theme-code-border: #e7e7e7;
-		--theme-pre-bg: #f7f7f7;
-		--theme-pre-border: #e0e0e0;
-		--theme-line-numbers-border: #ddd;
-		--theme-line-numbers-text: #aaa;
-		--theme-copy-btn-bg: #fff;
-		--theme-copy-btn-text: #666;
-		--theme-copy-btn-border: #ccc;
-		--theme-copy-btn-hover-bg: #f0f0f0;
-		--theme-copy-btn-hover-text: #333;
-		--theme-copy-btn-copied-bg: #e6fffa;
-		--theme-copy-btn-copied-text: #008000;
-		--theme-copy-btn-copied-border: #008000;
-		--theme-table-border: #ccc;
-		--theme-table-header-bg: #f5f5f5;
-		--theme-table-row-even: #fafafa;
-		--theme-table-row-hover: #f0f0f0;
-		--theme-math-filter: none;
-		--theme-back-to-top: #555;
-		--theme-back-to-top-hover: #111;
-	}
 }
 
 /*******************************************************************************
@@ -257,33 +225,53 @@ BACK TO TOP BUTTON
 }
 
 /*******************************************************************************
-THEME TOGGLE BUTTON (DeepWiki Style)
+NAV CONTROLS
 *******************************************************************************/
 
-.theme-toggle-btn {
+.site-nav-controls {
+	display: flex;
+	align-items: center;
+	gap: 0.35rem;
+	margin-left: auto;
+	margin-right: 3em;
+	margin-top: 1.6em;
+}
+
+.theme-toggle-btn,
+.language-toggle-btn {
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	width: 2.4rem;
 	height: 2.4rem;
 	padding: 0;
 	background: transparent;
 	border: none;
 	border-radius: 0.375rem;
 	cursor: pointer;
-	margin-left: auto;
-	margin-right: 3em;
-	margin-top: 1.6em;
 	transition: background-color 0.15s ease;
 	color: #374151;
 	/* 浅色模式下月亮图标颜色 */
 }
 
-.theme-toggle-btn:hover {
+.theme-toggle-btn {
+	width: 2.4rem;
+}
+
+.language-toggle-btn {
+	min-width: 2.4rem;
+	padding: 0 0.45rem;
+	font: inherit;
+	font-weight: 600;
+	line-height: 1;
+}
+
+.theme-toggle-btn:hover,
+.language-toggle-btn:hover {
 	background: var(--highlight-weak, rgba(128, 128, 128, 0.2));
 }
 
-.theme-toggle-btn:focus-visible {
+.theme-toggle-btn:focus-visible,
+.language-toggle-btn:focus-visible {
 	outline: 2px solid var(--highlight-strong, rgba(128, 128, 128, 0.4));
 	outline-offset: 2px;
 }
@@ -294,6 +282,7 @@ THEME TOGGLE BUTTON (DeepWiki Style)
 }
 
 /* 深色模式下太阳图标颜色 */
-.theme-toggle-btn.is-dark {
+.theme-toggle-btn.is-dark,
+html[data-theme="dark"] .language-toggle-btn {
 	color: #d1d5db;
 }

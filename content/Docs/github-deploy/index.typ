@@ -2,6 +2,14 @@
 #show: template.with(
   title: "GitHub 网站部署",
   description: "GitHub 网站部署文档，介绍了如何使用 GitHub Actions 将网站部署到 GitHub Pages。",
+  lang: "zh",
+  header-links: (
+    "/zh/": "首页",
+    "/zh/Blog/": "文章",
+    "/zh/Docs/": "文档",
+    "/CV/": "简历",
+  ),
+  website-title: "一个普通的黄桃的博客",
 )
 
 = GitHub 网站部署

@@ -37,7 +37,7 @@ The `tufted-web()` function contains metadata parameters such as `title`, `descr
 
 The `header-links` parameter defines the links and labels in the top navigation bar. It is a dictionary: keys are paths, and values are labels.
 
-The `lang` parameter defines the site language. It will be used to set the HTML `lang` attribute. The default is `zh` (Chinese). Different language settings may result in different fonts.
+The `lang` parameter defines the site language. It will be used to set the HTML `lang` attribute. The default is `en` (English). Different language settings may result in different fonts.
 
 ```typst
 #import "tufted-lib/tufted.typ"

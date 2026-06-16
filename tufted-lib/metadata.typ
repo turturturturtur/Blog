@@ -72,7 +72,7 @@
   title: "",
   author: none,
   description: "",
-  lang: "zh",
+  lang: "en",
   date: none,
   website-title: "",
   website-url: none,

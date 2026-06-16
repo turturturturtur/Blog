@@ -2,6 +2,14 @@
 #show: template.with(
   title: "网站配置",
   description: "网站配置文档",
+  lang: "zh",
+  header-links: (
+    "/zh/": "首页",
+    "/zh/Blog/": "文章",
+    "/zh/Docs/": "文档",
+    "/CV/": "简历",
+  ),
+  website-title: "一个普通的黄桃的博客",
 )
 
 = 网站配置
@@ -36,7 +44,7 @@
 
 `header-links` 参数用于定义顶部导航栏的链接和标签。它是一个字典，键是链接的路径，值是链接的标签。
 
-`lang` 参数用于定义网站的语言，这将被用于设置 HTML 的 `lang` 属性，默认为 `zh` （中文）。不同的语言设置可能会导致字体的不同。
+`lang` 参数用于定义网站的语言，这将被用于设置 HTML 的 `lang` 属性，默认为 `en`（英文）。不同的语言设置可能会导致字体的不同。
 
 ```typst
 #import "tufted-lib/tufted.typ"

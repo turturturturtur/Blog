@@ -1,18 +1,24 @@
 #import "../config.typ": template, tufted
 #show: template.with(
-  title: "技术笔记与学习经验",
-  description: "记录工程实践、技术文章、学习经验和可复用速查笔记。",
+  title: "An Ordinary Yellow Peach's Blog",
+  description: "Notes on AI infrastructure, data curation, math, RL, OPD, agents, project management experience, and reusable engineering references.",
 )
 
 #tufted.margin-note[
-  计划中的写作流：草稿先在飞书或其他工具沉淀；整理后转成 Typst 文章；本地构建校验；提交到 GitHub，由 GitHub Actions 自动部署。
+  This site keeps the Tufte-style wide margin: the main column carries the argument, while margin notes hold context, reminders, and indexes without interrupting the reading flow.
 ]
 
-= 技术笔记与学习经验
+#tufted.margin-note[
+  Planned writing flow: collect drafts in Lark or another writing tool, shape them into Typst articles, validate the local build, then publish through GitHub Actions.
+]
 
-这里记录我在技术学习和工程实践中的文章、速查笔记和经验复盘。内容会优先面向可复用的知识：一个问题怎么拆、一个概念怎么查、一次实践踩过哪些坑。
+= An Ordinary Yellow Peach's Blog
 
-== 主要入口
+This is a personal technical blog for long-term notes, reusable references, and engineering retrospectives. It is not a template landing page; it is where I keep material that should remain useful after the first read: how a problem was decomposed, how a concept was checked, and what practice exposed.
+
+#figure(caption: "A Tufte-style reading and writing layout")[#image("imgs/devices.webp")]
+
+== Reading Entrypoints
 
 #tufted.full-width[
   #html.div(
@@ -22,43 +28,52 @@
         "a",
         attrs: (class: "topic-card", href: "Blog/"),
         {
-          html.elem("strong", "文章归档")
-          html.p("按主题、年份和标签整理技术文章与学习笔记。")
+          html.elem("strong", "Article Archive")
+          html.p("Technical articles organized by the current taxonomy, year, and tag.")
         },
       )
       html.elem(
         "a",
         attrs: (class: "topic-card", href: "Blog/#quick-index"),
         {
-          html.elem("strong", "速查索引")
-          html.p("把常用概念、工具链和实践经验整理成可快速定位的入口。")
+          html.elem("strong", "Quick Index")
+          html.p("Fast entrypoints for common concepts, toolchains, and practical references.")
         },
       )
       html.elem(
         "a",
         attrs: (class: "topic-card", href: "feed.xml"),
         {
-          html.elem("strong", "RSS 订阅")
-          html.p("订阅后可以跟踪后续新增文章。")
+          html.elem("strong", "RSS Feed")
+          html.p("Subscribe to follow new articles as they are published.")
         },
       )
     },
   )
 ]
 
-== 内容方向
+== Why Keep The Tufte Style
 
-- *编程语言与工程实践*：Python、类型系统、测试、构建、调试和性能分析。
-- *系统与工具链*：Linux、Git、CI/CD、开发环境和自动化脚本。
-- *数据与数学基础*：概率统计、机器学习基础、实验记录和可视化。
-- *学习经验复盘*：读书笔记、课程总结、问题拆解方法和阶段性回顾。
+The Tufte style fits technical writing well: the main column carries the continuous explanation, while the margin holds supporting notes, figure explanations, and side references. An article can be read in order, and later scanned quickly for the important reminders.
 
-== 写作工作流
+I will try to keep that habit here: titles should name the topic directly, openings should give the conclusion and use case, bodies should preserve the reasoning and practice, and margin notes should hold the references and reminders that do not belong in the main flow.
 
-以后新增文章时，推荐保持这个流程：
+== Topics
 
-1. 在飞书或其他草稿工具里先写出原始材料。
-2. 我把草稿整理成结构化文章，补齐标题、摘要、分类、标签和参考链接。
-3. 生成 `content/Blog/YYYY-MM-DD-topic-name/index.typ`。
-4. 运行 `uv run build.py build -f` 校验站点。
-5. 提交并推送到 GitHub，触发 GitHub Pages 部署。
+- *AI Infra*: triton, c++, megatron, verl, vllm, slime, sglang, distributed training, inference serving, and performance engineering.
+- *Data curation*: Data Mixture, Data Selection, Data Filtering, quality checks, and training data feedback loops.
+- *Math*: matrix calculus, linear algebra, optimization notes, trace techniques, matrix derivatives, and backpropagation derivations.
+- *RL*: reinforcement learning algorithms, reward design, evaluation, stability, and experiment notes.
+- *OPD*: an independent workstream kept separate until its subcategories become stable.
+- *Agent*: tool use, memory, planning, evaluation, product loops, and the infrastructure around practical agent systems.
+- *Project Management Experience*: planning, execution cadence, cross-team communication, delivery risk, and review notes.
+
+== Writing And Publishing Workflow
+
+For new articles, the recommended workflow is:
+
+1. Write the raw material in Lark or another drafting tool.
+2. Shape the draft into a structured article with title, summary, category, tags, and references.
+3. Generate `content/Blog/YYYY-MM-DD-topic-name/index.typ`.
+4. Run `uv run build.py build -f` to validate the site.
+5. Commit and push to GitHub so GitHub Pages can deploy it.

@@ -1,37 +1,43 @@
 #import "../../config.typ": template, tufted
 // Copy this file into content/Blog/YYYY-MM-DD-topic-name/index.typ.
-// Fill title, description, date, category, and tags before publishing.
+// 中文维护说明：
+// 1. 默认公开文章路径仍放在英文侧 `content/Blog/`，中文草稿可以先写中文，再翻译或双语整理。
+// 2. 主分类目前使用：AI Infra / Data curation / RL / OPD / Agent。
+// 3. AI Infra 子类：triton / c++ / megatron / verl / vllm / slime / sglang。
+// 4. Data curation 子类：Data Mixture / Data Selection / Data Filtering。
+// 5. RL、OPD、Agent 子类先留空；等方向稳定后同时更新中英文归档页。
+// 6. 约定 `category` 写主分类，`tags` 第一个位置优先写子类，后面再写技术关键词。
 #show: template.with(
-  title: "文章标题",
-  description: "一句话摘要，供文章列表、RSS 和搜索结果使用。",
+  title: "Article Title",
+  description: "One-sentence summary for the archive, RSS feed, and search results.",
   date: datetime(year: 2026, month: 1, day: 1),
-  extra-info: [分类：待分类 · 标签：标签一 / 标签二],
+  extra-info: [Category: AI Infra · Tags: triton / performance],
 )
 
-= 文章标题
+= Article Title
 
-用一段话说明这篇文章解决什么问题、适合谁读、读完能带走什么。
+Use one paragraph to state the problem, the intended reader, and the practical takeaway.
 
-== 背景
+== Background
 
-说明问题出现的上下文、前置知识和约束。
+Explain the context, prerequisites, and constraints.
 
-== 核心结论
+== Core Takeaways
 
-- 结论一。
-- 结论二。
-- 结论三。
+- Takeaway one.
+- Takeaway two.
+- Takeaway three.
 
-== 过程记录
+== Process
 
-把推导、实验、代码、踩坑和取舍写清楚。技术文章优先保留可复现步骤。
+Keep the reasoning, experiments, code, pitfalls, and tradeoffs reproducible.
 
-== 速查
+== Quick Reference
 
-- 常用命令：
-- 关键概念：
-- 参考链接：
+- Commands:
+- Key concepts:
+- References:
 
-== 复盘
+== Retrospective
 
-记录这次学习或实践中可以复用的方法，以及下次需要避免的问题。
+Record the methods worth reusing and the mistakes to avoid next time.

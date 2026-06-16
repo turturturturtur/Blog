@@ -2,6 +2,14 @@
 #show: template.with(
   title: "自定义样式",
   description: "自定义样式文档，介绍了如何修改网站的视觉外观。",
+  lang: "zh",
+  header-links: (
+    "/zh/": "首页",
+    "/zh/Blog/": "文章",
+    "/zh/Docs/": "文档",
+    "/CV/": "简历",
+  ),
+  website-title: "一个普通的黄桃的博客",
 )
 
 = 自定义样式/脚本
@@ -72,4 +80,3 @@ a {
   js-scripts: ("/assets/page-specific.js"),
 )
 ```
-
